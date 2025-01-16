@@ -10,5 +10,12 @@ namespace RamsaDefenceHW1.Controllers
             var item = new Items() { Name = "Laptop" };
             return View(item);
         }
+
+        public IActionResult Edit(int id)
+        {
+
+            return Content("id= " + id);
+
+        }
     }
 }

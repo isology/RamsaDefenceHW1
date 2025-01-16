@@ -1,21 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RamsaDefenceHW1.Data;
 using RamsaDefenceHW1.Models;
 
 namespace RamsaDefenceHW1.Controllers
 {
     public class ItemsController : Controller
     {
-        public IActionResult Overview()
+        private readonly Context _context;
+
+        public ItemsController(Context context)
         {
-            var item = new Items() { Name = "Laptop" };
-            return View(item);
+            _context = context;
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Index()
         {
+            var item = await _context.Items.ToListAsync();
+            return View(item); 
+        }
 
-            return Content("id= " + id);
+        public IActionResult Create() { 
+        
+            return View(); 
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("Id, Name, Price, StockQuantity")] Items item)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Items.Add(item);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("index");
+            }
 
+            return View(item);
         }
     }
 }

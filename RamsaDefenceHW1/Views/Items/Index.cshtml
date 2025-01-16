@@ -18,12 +18,12 @@
 		{
 			<tr>
 				<td>@item.Name</td>
-				<td>@item.Price</td>
+				<td>@item.Price.ToString()</td>
 				<td>@item.StockQuantity</td>
-				@* <td>
+				<td>
 					<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
 					<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-				</td> *@
+				</td>
 			</tr>
 		}
 

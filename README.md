@@ -12,3 +12,16 @@ https://dotnet.microsoft.com/en-us/download/dotnet/9.0
 
 **MICROSOFT SQL SERVER**
 https://www.microsoft.com/en-us/sql-server/sql-server-downloads
+
+
+To list all the items go to:
+**/items/index**
+
+To create an item go to: 
+**/items/create**
+
+To update an item go to:
+**/items/index** and click the edit button
+
+To delete an item go to:
+**/items/index** and click the delete button
